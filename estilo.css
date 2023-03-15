@@ -1,0 +1,115 @@
+@charset "UTF-8";
+
+@import url('https://fonts.googleapis.com/css2?family=Passion+One&family=Sriracha&display=swap');
+
+/* Como criar variáveis no css, isso serve para padronizar fontes e outros elementos */
+
+:root {
+    --fonte1: Verdana, Geneva, Tahoma, sans-serif;
+    --fonte2:'Passion One', cursive;
+    --fonte3: 'Sriracha', cursive;
+}
+
+/*vamos criar essa configuração geral para resetar todos os elementos. */
+
+* {
+    margin: 0px;
+    padding: 0px;
+    font-size: 1em;
+}
+
+/* configurações que html e body tem em comum, separamos com vírgula */
+
+html, body {
+    background-color: darkgrey;
+    min-width: 100%; /* tamanho mínimo da viweport */
+    font-family: var(--fonte1); /* é assim que usa uma variável que foi criada acima */
+}
+
+header {
+    background-color: black;
+    color: white;
+    text-align: center;
+}
+
+/* configuraçõa de pai e filho sendo header o pai e h1 o filho */
+
+header > h1 {
+    padding-top: 50px;
+    /* text-transform: uppercase; --> transforma em letras maiúsculas
+       font-warlant: small-caps; --> transforma em letras maiúsculas mas deixa as primeiras letras maiores */
+       font-warlant: small-caps;
+       font-family: var(--fonte2);
+       /* font-size: 3em;  em significa o número de vezes que quero aumentar a fonte em relação ao tamanho original dela. */
+       font-size: 10vw; /*podemos usar também a configuração de 10vw que significa que quero que o tamanhã da fonte seja 10% da largura da tela. */
+}
+
+header > p {
+    padding-bottom: 50px;
+}
+
+header a, footer a {
+    color: white;
+    text-decoration: none;
+    font-weight: bolder; /* deixa a fonte em negrito */
+}
+
+/* quando passar o mouse por cima eu quero que o link fique sublinhado */
+
+header a:hover, footer a:hover {
+    text-decoration: underline;
+}
+
+/* configuração geral que vale para todas as sections. Para ajudar a ganhar um efeito especial de pralax, vamos criar um padding top e bottom de 10 viewer hight (vh) isso faz com que ganhe 10% da altura da tela */
+
+section {
+    padding-top: 10vh;
+    padding-bottom: 10vh;
+    /* line-height: 2em;  espaçamento entre as linhas, mas ao invés de usar esse padrão "em" vamos usar o padrão de % da largura da tela que é melhor para responsividade "vw" */
+    line-height: 3.5vw;
+    padding-left: 30px;
+    font-family: var(--fonte3);
+}
+
+section > p {
+    padding-bottom: 2em;
+}
+
+section.normal {
+    background-color:  white;
+    color: black;
+}
+
+section.imagem {
+    background-color: rgb(51, 51, 51);
+    color: white;
+    box-shadow: inset 6px 6px 13px 0px rgba(0, 0, 0, 0.493);
+    background-attachment: fixed; /* efeito paralax */
+}
+
+section.imagem > p {
+    background-color: rgba(0, 0, 0, 0.507);
+    /* width: 400px;  largura fixa de 400px, mas não vamos usar essa configuração. Vamos usar o display: inline-block aí o conteudo p vai se adaptar à caixa onde ele está*/
+    display: inline-block;
+    padding: 5px;
+    text-shadow: 1px 1px 0px black;
+}
+
+section#img01 {
+    background-image: url(../projeto-cordel/imagens/background001.jpg);
+    /*observa-se que a imagem não aparece toda, vamos posicionar à direita e centralizada */
+    background-position: right center; /*isso porque a parte mais forte da imagem está à direita */
+    background-size: cover; /* isso resolve a questão da imagem está grande demais */
+}
+
+section#img02 {
+    background-image: url(../projeto-cordel/imagens/background002.jpg);
+    background-size: cover;
+}
+
+footer {
+    background-color: black;
+    text-align: center;
+    color: white;
+    padding: 10px;
+}
